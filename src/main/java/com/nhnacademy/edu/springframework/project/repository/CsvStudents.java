@@ -66,7 +66,7 @@ public class CsvStudents implements Students {
     /**
      * 8 : students 데이터에 score 정보를 추가하세요.
      *
-     * @param scores
+     * @param scores scores.findAll() - 점수목록
      */
     @Override
     public void merge(Collection<Score> scores) {
