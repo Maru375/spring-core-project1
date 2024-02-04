@@ -9,7 +9,7 @@ import java.util.Collection;
 
 public class Main {
 
-    // TODO 9 - 성공적으로 실행되어야 합니다.
+    // 9 - 성공적으로 실행되어야 합니다.
     public static void main(String[] args) {
         DataLoadService dataLoadService = new CsvDataLoadService();
         dataLoadService.loadAndMerge();
