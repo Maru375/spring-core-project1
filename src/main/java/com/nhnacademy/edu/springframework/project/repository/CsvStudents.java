@@ -2,6 +2,7 @@ package com.nhnacademy.edu.springframework.project.repository;
 
 import com.nhnacademy.edu.springframework.project.service.Student;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Repository;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
+@Repository("csvStudent")
 public class CsvStudents implements Students {
 
     public static final String FILE_NAME = "data/student.csv";
@@ -25,16 +27,10 @@ public class CsvStudents implements Students {
         public static final CsvStudents INSTANCE = new CsvStudents();
     }
 
-    /**
-     * 3 :
-     * Java Singleton 패턴으로 getInstance() 를 구현하세요.
-     **/
     public static Students getInstance() {
         return LazyHolder.INSTANCE;
     }
 
-    // 7 : student.csv 파일에서 데이터를 읽어 클래스 멤버 변수에 추가하는 로직을 구현하세요.
-    // 데이터를 적재하고 읽기 위해서, 적절한 자료구조를 사용하세요.
     @Override
     public void load() {
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(FILE_NAME);
@@ -63,11 +59,6 @@ public class CsvStudents implements Students {
         return studentList;
     }
 
-    /**
-     * 8 : students 데이터에 score 정보를 추가하세요.
-     *
-     * @param scores scores.findAll() - 점수목록
-     */
     @Override
     public void merge(Collection<Score> scores) {
         for(Student student : studentList){
