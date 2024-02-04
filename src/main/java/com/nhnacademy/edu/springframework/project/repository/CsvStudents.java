@@ -23,13 +23,6 @@ public class CsvStudents implements Students {
 
     private CsvStudents() {
     }
-    private static class LazyHolder {
-        public static final CsvStudents INSTANCE = new CsvStudents();
-    }
-
-    public static Students getInstance() {
-        return LazyHolder.INSTANCE;
-    }
 
     @Override
     public void load() {
@@ -61,8 +54,8 @@ public class CsvStudents implements Students {
 
     @Override
     public void merge(Collection<Score> scores) {
-        for(Student student : studentList){
-            student.setScore(new Score(student.getSeq(),0));
+        for (Student student : studentList) {
+            student.setScore(new Score(student.getSeq(), 0));
         }
         for (Score score : scores) {
             int studentSeq = score.getStudentSeq();

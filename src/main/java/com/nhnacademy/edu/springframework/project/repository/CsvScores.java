@@ -21,14 +21,6 @@ public class CsvScores implements Scores {
     private CsvScores() {
     }
 
-    private static class LazyHolder {
-        public static final CsvScores INSTANCE = new CsvScores();
-    }
-
-    public static Scores getInstance() {
-        return LazyHolder.INSTANCE;
-    }
-
     @Override
     public void load() {
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(FILE_NAME);
