@@ -3,7 +3,6 @@ package com.nhnacademy.edu.springframework.project.service;
 import com.nhnacademy.edu.springframework.project.repository.*;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
